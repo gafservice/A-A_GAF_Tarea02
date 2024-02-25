@@ -16,7 +16,7 @@ jobs:
       - name: Copiar Archivos
         run: |
           # Lógica para copiar archivos
-           cp -r A-A_GAF_Tarea02 Octave/AprenAuto/HW02/
+           cp -r A&A_GAF_HW02/A&A_HW02.tex Octave/AprenAuto/HW02/
           #mv A-A_GAF_Tarea02 Octave/AprenAuto/HW02/
       - name: Commit y Push Cambios
         run: |
