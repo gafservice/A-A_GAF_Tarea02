@@ -10,13 +10,17 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Verificar Contenido del Directorio de Origen
-        run: ls A\&A_GAF_HW02/HW02/
+      - name: Verificar Existencia del Directorio de Origen
+        run: test -d A\&A_GAF_HW02/HW02/ && echo "El directorio existe" || echo "El directorio no existe"
 
       - name: Copiar Archivos
         run: |
-          mkdir -p Octave/AprenAuto/HW02
-          cp -r A\&A_GAF_HW02/HW02/* Octave/AprenAuto/HW02/
+          if [ -d A\&A_GAF_HW02/HW02/ ]; then
+            mkdir -p Octave/AprenAuto/HW02
+            cp -r A\&A_GAF_HW02/HW02/* Octave/AprenAuto/HW02/
+          else
+            echo "El directorio de origen no existe o está vacío."
+          fi
 
       - name: Añadir y Hacer Commit de los Cambios
         run: |
@@ -25,6 +29,7 @@ jobs:
           git add Octave/AprenAuto/HW02/*
           git commit -m "Copia de archivos realizada por GitHub Actions"
           git push origin main
+
 
 
    
