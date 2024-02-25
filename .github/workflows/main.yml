@@ -3,7 +3,7 @@ name: Copiar Archivos
 on:
   push:
     branches:
-      - main  # Puedes ajustar la rama según tu configuración
+      - main
 
 jobs:
   copy-files:
@@ -15,12 +15,13 @@ jobs:
 
       - name: Copiar Archivos
         run: |
-          cp -r A&A_GAF_HW02/HW02 Octave/AprenAuto/HW02
+          # Lógica para copiar archivos
+          cp -r AprenAuto/HW02/
 
       - name: Commit y Push Cambios
         run: |
           git config --global user.name "GitHub Actions"
           git config --global user.email "actions@users.noreply.github.com"
-          git add Octave/AprenAuto/HW02
+          git add .
           git commit -m "Copia de archivos realizada por GitHub Actions"
           git push
