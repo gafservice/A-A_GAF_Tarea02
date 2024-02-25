@@ -1,3 +1,4 @@
+
 name: Copiar Archivos
 
 on:
@@ -13,6 +14,15 @@ jobs:
       - name: Verificar Existencia del Directorio de Origen
         run: test -d A\&A_GAF_HW02/HW02/ && echo "El directorio existe" || echo "El directorio no existe"
 
+      - name: Configurar Usuario de Git (Solo si el repositorio existe)
+        run: |
+          if [ -d .git ]; then
+            git config --global user.name "GitHub Actions"
+            git config --global user.email "actions@github.com"
+          else
+            echo "No se encontró un repositorio de Git."
+          fi
+
       - name: Copiar Archivos
         run: |
           if [ -d A\&A_GAF_HW02/HW02/ ]; then
@@ -24,12 +34,13 @@ jobs:
 
       - name: Añadir y Hacer Commit de los Cambios
         run: |
-          git config --global user.name "GitHub Actions"
-          git config --global user.email "actions@github.com"
-          git add Octave/AprenAuto/HW02/*
-          git commit -m "Copia de archivos realizada por GitHub Actions"
-          git push origin main
-
+          if [ -d .git ]; then
+            git add Octave/AprenAuto/HW02/*
+            git commit -m "Copia de archivos realizada por GitHub Actions"
+            git push origin main
+          else
+            echo "No se encontró un repositorio de Git, no se realizarán commits ni push."
+          fi
 
 
    
