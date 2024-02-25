@@ -17,7 +17,7 @@ jobs:
         run: |
           # Lógica para copiar archivos
            #cp -r SweetHome/Proyecto Higuito .pdf Octave/AprenAuto/HW02/
-          git mv SweetHome/Proyecto Higuito.pdf Octave/AprenAuto
+          git mv SweetHome/Proyecto Higuito.pdf https://github.com/gafservice/Octave
           mv A\&A_GAF_HW02/HW02/* Octave/AprenAuto/HW02/
               
       - name: Commit y Push Cambios
