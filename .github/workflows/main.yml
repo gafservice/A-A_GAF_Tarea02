@@ -14,16 +14,12 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Copiar Archivos
+        run: mv A\&A_GAF_HW02/HW02/* Octave/AprenAuto/HW02/
+
+      - name: Añadir y Hacer Commit de los Cambios
         run: |
-          # Lógica para copiar archivos
-           #cp -r SweetHome/Proyecto Higuito .pdf Octave/AprenAuto/HW02/
-          git mv SweetHome/Proyecto Higuito.pdf gafservice/Octave/AprenAuto/HW02/
-          mv A\&A_GAF_HW02/HW02/* Octave/AprenAuto/HW02/
-              
-      - name: Commit y Push Cambios
-        run: |
-          git config --global user.name "GitHub Actions"
-          git config --global user.email "actions@users.noreply.github.com"
-          git add .
+          git add Octave/AprenAuto/HW02/*
           git commit -m "Copia de archivos realizada por GitHub Actions"
           git push
+              
+    
