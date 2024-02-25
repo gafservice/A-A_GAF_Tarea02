@@ -16,7 +16,7 @@ jobs:
       - name: Copiar Archivos
         run: |
           # Lógica para copiar archivos
-          cp -r AprenAuto/HW02/
+          cp -r Octave/AprenAuto/HW02/
 
       - name: Commit y Push Cambios
         run: |
