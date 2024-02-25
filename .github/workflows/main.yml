@@ -1,4 +1,4 @@
-name: Copiar Archivos
+ name: Copiar Archivos
 
 on:
   push:
@@ -14,12 +14,14 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Copiar Archivos
-        run: mv A\&A_GAF_HW02/HW02/* Octave/AprenAuto/HW02/
+        run: |
+          shopt -s dotglob
+          mv A\&A_GAF_HW02/HW02/* Octave/AprenAuto/HW02/
+          shopt -u dotglob
 
       - name: Añadir y Hacer Commit de los Cambios
         run: |
           git add Octave/AprenAuto/HW02/*
           git commit -m "Copia de archivos realizada por GitHub Actions"
           git push
-              
-    
+   
