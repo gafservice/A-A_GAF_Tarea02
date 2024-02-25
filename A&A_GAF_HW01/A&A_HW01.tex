@@ -38,7 +38,7 @@
 \parskip1.3ex                           % space between paragraphs
 
 
-\title{Tarea 1: Gradientes, Matrices positivas definidas, Ecuaciones normales}
+\title{Regresión polinomial y regresión ponderada localmente}
 
 \newcommand{\EstudianteA}{Araya Fallas, Gerardo Enrique, gaf1@estudiantec.cr.}
 
@@ -86,14 +86,26 @@
 
 \section{Introducción}
 %------------------------------------------------------------------------------%
-Al resolver el conjunto de preguntas que se presentan en esta tarea por medio de las propiedades de gradientes y trazas vistas en clase, se busca familiarizarse con dicho conceptos, siendo estos la base para un mejor entendimiento de los procesos que conllevan el Aprendizaje Automático
+En esta tarea utilizaremos un escenario hipotético, en que queremos desarrollar un sensor eco-
+nómico para medir profundidad en el océano. Como datos sintéticos de referencia (ground truth)
+utilizaremos el perfil de la costa pacífica de Costa Rica tomado de este sitio.
+El código base y los datos para esta tarea los encuentra en el repositorio de Github Classroom.
+El sistema hipotético calcula datos de profundidad a partir de una red de sensores muy económicos,
+que sin embargo, producen muestras en posiciones medidas con ruido en lugares arbitrarios, y con
+valores ruidosos de profundidad.
+Usted comparará los resultados de utilizar regresión polinomial y regresión ponderada localmente
+(LWR o LOWESS) para procurar reconstruir de las muestras un mapa de profundidad aceptable.
 
 %------------------------------------------------------------------------------%
 
 %------------------------------------------------------------------------------%
 \section{Objetivo}
-El objetivo de la tarea es asegurar que se maneja el lenguaje matemático a utilizar en varias partes
-del curso, así como con GNU/Octave ayudar a ilustrar algunos conceptos fundamentales asociados.
+1. Evaluar estrategias de regresión no lineal y determinar las ventajas y desventajas de cada
+una.
+2. Vectorizar procesos de cálculos complejos para aprovechar las capacidades de hardware mo-
+derno y las implementaciones que ofrecen los sistemas para álgebra lineal.
+3. Aplicar los conceptos teóricos desarrollados en las lecciones en la solución de un problema de
+ingeniería.
 
 \section{Marco Teórico}
 
