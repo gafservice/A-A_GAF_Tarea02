@@ -12,9 +12,7 @@ jobs:
 
     steps:
       - name: Verificar Existencia del Directorio de Origen
-        ## run: test -d gafservice/A-A_GAF_Tarea02/ && echo "El directorio existe" || echo "El directorio no existe"
-
-     run: test -d https://github.com/gafservice/A-A_GAF_Tarea02 && echo "El directorio existe" || echo "El directorio no existe"
+        run: test -d gafservice/A-A_GAF_Tarea02 && echo "El directorio existe" || echo "El directorio no existe"
       - name: Configurar Usuario de Git (Solo si el repositorio existe)
         run: |
           if [ -d .git ]; then
