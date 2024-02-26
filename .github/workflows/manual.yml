@@ -1,0 +1,36 @@
+name: Copiar Archivos
+
+on:
+  push:
+    branches:
+      - main  # Cambia a la rama principal de tu repositorio si es diferente
+
+jobs:
+  copy-files:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repositorio
+        uses: actions/checkout@v2
+
+      - name: Verificar Existencia del Directorio de Origen
+        run: test -d A-A_GAF_Tarea02 && echo "El directorio existe" || echo "El directorio no existe"
+
+      - name: Copiar Archivos a Octave
+        run: |
+          if [ -d A-A_GAF_Tarea02 ]; then
+            cp -r A-A_GAF_Tarea02/* Octave/
+          else
+            echo "El directorio de origen no existe."
+          fi
+
+      - name: Añadir y Hacer Commit de los Cambios
+        run: |
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "actions@github.com"
+          git add Octave/*
+          git commit -m "Copia de archivos realizada por GitHub Actions"
+          git push origin main
+
+
+
